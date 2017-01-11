@@ -29,5 +29,6 @@ namespace snake_full
             Console.SetCursorPosition(x, y);
             Console.Write(sim);
         }
-    }
+
+     }
 }

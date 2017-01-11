@@ -10,6 +10,9 @@ namespace snake_full
     {
         static void Main(string[] args)
         {
+            int x = 1;
+            Func2(x);
+
             Point p1 = new Point(1, 3, '*');
             p1.Draw();
 
@@ -17,6 +20,31 @@ namespace snake_full
             p2.Draw();
 
             Console.ReadLine();
+
+            Move(p1, 10, 10);
+            p1.Draw();
+
+            Console.ReadLine();
+
+            Reset(p2);
+            p2.Draw();
+
+            Console.ReadLine();
+        }
+        public static void Func2(int x)
+        {
+            x = x + 1;
+        }
+
+        public static void Move(Point p, int dx, int dy)
+        {
+            p.x = p.x + dx;
+            p.y = p.y + dy;
+        }
+
+        public static void Reset(Point p)
+        {
+            p = new Point();
         }
     }
 }
