@@ -10,37 +10,34 @@ namespace snake_full
     {
         static void Main(string[] args)
         {
-            int x = 1;
-            Func2(x);
-
             Point p1 = new Point(1, 3, '*');
             p1.Draw();
 
             Point p2 = new Point(4, 5, '#');
             p2.Draw();
 
-            Move(p1, 10, 10);
-            p1.Draw();
+            List<int> numList = new List<int>();
+            numList.Add( 0 );
+            numList.Add( 1 );
+            numList.Add( 2 );
 
-            Reset(p2);
-            p2.Draw();
+            int x = numList[0];
+            int y = numList[1];
+            int z = numList[2];
+
+            foreach (int i in numList)
+            {
+                Console.WriteLine(i);
+            }
+
+            numList.RemoveAt(0);
+
+            List<Point> pList = new List<Point>();
+            pList.Add(p1);
+            pList.Add(p2);
 
             Console.ReadLine();
         }
-        public static void Func2(int x)
-        {
-            x = x + 1;
-        }
-
-        public static void Move(Point p, int dx, int dy)
-        {
-            p.x = p.x + dx;
-            p.y = p.y + dy;
-        }
-
-        public static void Reset(Point p)
-        {
-            p = new Point();
-        }
+        
     }
 }
