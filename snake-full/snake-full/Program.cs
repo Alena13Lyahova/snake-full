@@ -19,12 +19,8 @@ namespace snake_full
             Point p2 = new Point(4, 5, '#');
             p2.Draw();
 
-            Console.ReadLine();
-
             Move(p1, 10, 10);
             p1.Draw();
-
-            Console.ReadLine();
 
             Reset(p2);
             p2.Draw();
