@@ -16,26 +16,30 @@ namespace snake_full
             Point p2 = new Point(4, 5, '#');
             p2.Draw();
 
-            List<int> numList = new List<int>();
-            numList.Add( 0 );
-            numList.Add( 1 );
-            numList.Add( 2 );
+            List<char> numList = new List<char>();
+            numList.Add( '*' );
+            numList.Add( '#' );
+            numList.Add( '&' );
 
-            int x = numList[0];
-            int y = numList[1];
-            int z = numList[2];
+            char x = numList[0];
+            char y = numList[1];
+            char z = numList[2];
 
-            foreach (int i in numList)
+            foreach (char i in numList)
             {
                 Console.WriteLine(i);
             }
-
-            numList.RemoveAt(0);
 
             List<Point> pList = new List<Point>();
             pList.Add(p1);
             pList.Add(p2);
 
+            foreach (Point p in pList)
+            {
+                p.Draw();
+            }
+
+            numList.RemoveAt(0);
             Console.ReadLine();
         }
         
