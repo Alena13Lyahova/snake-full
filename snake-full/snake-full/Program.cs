@@ -16,30 +16,12 @@ namespace snake_full
             Point p2 = new Point(4, 5, '#');
             p2.Draw();
 
-            List<char> numList = new List<char>();
-            numList.Add( '*' );
-            numList.Add( '#' );
-            numList.Add( '&' );
+            HorizontalLine line = new HorizontalLine(5, 10, 8, '+');
+            line.Draw();
 
-            char x = numList[0];
-            char y = numList[1];
-            char z = numList[2];
+            VertikalLine line2 = new VertikalLine(5, 10, 18, '&');
+            line2.Draw();
 
-            foreach (char i in numList)
-            {
-                Console.WriteLine(i);
-            }
-
-            List<Point> pList = new List<Point>();
-            pList.Add(p1);
-            pList.Add(p2);
-
-            foreach (Point p in pList)
-            {
-                p.Draw();
-            }
-
-            numList.RemoveAt(0);
             Console.ReadLine();
         }
         
