@@ -68,5 +68,9 @@ namespace snake_full
             Console.Write(sim);
         }
 
-     }
+        internal bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
+    }
 }
