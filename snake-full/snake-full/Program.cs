@@ -22,6 +22,9 @@ namespace snake_full
             VertikalLine line2 = new VertikalLine(5, 10, 18, '&');
             line2.Draw();
 
+            DiagonalLine line3 = new DiagonalLine(5, 18, 28, '&');
+            line3.Draw();
+
             Console.ReadLine();
         }
         
