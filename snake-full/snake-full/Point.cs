@@ -44,6 +44,12 @@ namespace snake_full
             }
         }
 
+        internal void Clear()
+        {
+            sim = ' ';
+            Draw();
+        }
+
         public override string ToString()
         {
             return x + "," + y + "," + sim;
