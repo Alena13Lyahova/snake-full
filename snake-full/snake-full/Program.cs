@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snake;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,18 +12,26 @@ namespace snake_full
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(76, 28);
+            Console.SetWindowSize(80, 25);
 
-            Point p = new Point(4, 5, '*');
             Walls walls = new Walls(80, 25);
             walls.Draw();
 
-            FoodCreator foodCreator = new FoodCreator(80, 25, '+');
+            // Отрисовка точек			
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Draw();
+
+            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
             Point food = foodCreator.CreateFood();
             food.Draw();
 
             while (true)
             {
+                if (walls.IsHit(snake) || snake.IsHitTail())
+                {
+                    break;
+                }
                 if (snake.Eat(food))
                 {
                     food = foodCreator.CreateFood();
@@ -32,18 +41,15 @@ namespace snake_full
                 {
                     snake.Move();
                 }
-                Thread.Sleep(100);
 
+                Thread.Sleep(100);
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
-                    snake.HandltKey(key.Key);
+                    snake.HandleKey(key.Key);
                 }
-                Thread.Sleep(100);
-                snake.Move();
             }
-
         }
-        
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace snake_full
 {
-    class Snake: Figure
+    class Snake : Figure
     {
         Direction direction;
 
@@ -40,17 +40,28 @@ namespace snake_full
             nextPoint.Move(1, direction);
             return nextPoint;
         }
-        public void HandltKey(ConsoleKey key)
+
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
+        }
+
+        public void HandleKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)
                 direction = Direction.LEFT;
             else if (key == ConsoleKey.RightArrow)
                 direction = Direction.RIGHT;
-            else if (key == ConsoleKey.UpArrow)
-                direction = Direction.UP;
             else if (key == ConsoleKey.DownArrow)
                 direction = Direction.DOWN;
-            
+            else if (key == ConsoleKey.UpArrow)
+                direction = Direction.UP;
         }
 
         internal bool Eat(Point food)
